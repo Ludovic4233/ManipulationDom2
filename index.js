@@ -8,9 +8,15 @@ let fruits = [pomme, poire, prune, pêche];
 
 //fonctions
 function addProduct(product){
-    let li = document.createElement('li');
-        panier.appendChild(li);
-        li.innerHTML = product.innerHTML;
+    var p = document.createElement('p');
+    var btnClose = document.createElement('button');
+    p.innerHTML = product.innerHTML;
+    btnClose.innerHTML ="×";
+    p.appendChild(btnClose);
+    panier.appendChild(p);
+    btnClose.addEventListener('click', function(){
+        p.remove();
+    });
 }
 
 //événements
@@ -20,9 +26,9 @@ fruits.forEach(fruit =>
         addProduct(fruit)
     })
 );
-
 // for(let i = 0; i < fruits.length; i++){
 //     fruits[i].addEventListener('click', function(){
 //         addProduct(fruits[i]);
 //     });
 // }
+
